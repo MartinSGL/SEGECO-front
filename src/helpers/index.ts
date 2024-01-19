@@ -1,0 +1,1 @@
+export { handleErrorHttp } from './handleErrorHttp'

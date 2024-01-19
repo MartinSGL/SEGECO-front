@@ -1,0 +1,10 @@
+.operator_layout_container{
+    min-height: calc(100vh - 183px);
+    display:flex;
+    flex-direction: column;
+}
+
+.operator_header_name{
+    color: white;
+    text-transform: capitalize;
+}

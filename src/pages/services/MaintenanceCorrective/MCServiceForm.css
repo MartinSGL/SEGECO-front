@@ -1,0 +1,28 @@
+.form_service_row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-auto-flow: dense;
+  gap: 10px;
+}
+
+.container_service_table {
+  overflow-x: auto;
+}
+
+.container_table_add_button {
+  text-align: right;
+}
+
+.table_add_button {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.table_remove_button {
+  background-color: red;
+  color: white;
+}
+
+.uploader_container {
+  padding: 20px;
+}

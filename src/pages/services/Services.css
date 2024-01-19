@@ -1,0 +1,5 @@
+.service_input_container{
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr))
+}

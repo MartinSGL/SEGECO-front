@@ -1,0 +1,6 @@
+.company_link_button{
+    width: 100px;
+    height: 100px;
+    word-break: break-all;
+    text-transform: capitalize;
+}
