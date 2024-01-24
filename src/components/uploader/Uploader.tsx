@@ -3,8 +3,8 @@ import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { message, Modal, Upload } from 'antd';
 import type { GetProp, UploadProps } from 'antd';
 import { RcFile } from 'antd/es/upload';
-import axios from 'axios';
 import { UploadFile } from 'antd/lib';
+import { ApiSegeco } from '../../api/ApiSegeco';
 
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 
@@ -54,13 +54,14 @@ export const Uploader = () => {
   const uploadImage = async (file: RcFile) => {
     try {
       const formData = new FormData();
-      formData.append('image', file);
-      const resp = await axios.post('http://localhost:3001/images', formData, {
+      formData.append('file', file);
+      const resp = await ApiSegeco.post('/files', formData, {
         headers: {
           accept: 'application/json',
           'Content-Type': 'multipart/form-data;',
         },
       });
+      console.log(resp.data);
       if (resp?.data.data) {
         return resp?.data?.data?.url;
       }
@@ -69,19 +70,18 @@ export const Uploader = () => {
     }
   };
 
-  const onRemove = async (file: UploadFile) => {
-    try {
-      file.preview = await getBase64(file.originFileObj as FileType);
-      console.log(file);
-      const resp = await axios.delete(`http://localhost:3001/images/${image}`);
+  //   const onRemove = async (file: UploadFile) => {
+  //     try {
+  //       file.preview = await getBase64(file.originFileObj as FileType);
+  //       const resp = await axios.delete(`http://localhost:3001/images/${image}`);
 
-      if (resp?.data.data) {
-        return resp?.data?.data?.url;
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //       if (resp?.data.data) {
+  //         return resp?.data?.data?.url;
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
 
   const handlePreview = async (file: UploadFile) => {
     if (!file.url && !file.preview) {
@@ -106,7 +106,7 @@ export const Uploader = () => {
         maxCount={4}
         accept='image/png, image/jpeg'
         onPreview={handlePreview}
-        onRemove={onRemove}
+        // onRemove={onRemove}
         action={uploadImage}
         multiple={true}
       >

@@ -11,7 +11,7 @@ import './MCServiceForm.css';
 import { useMCServicesForm } from './useCMServiceForm';
 import { AddCMItem } from '../../../components/modal/AddCMItem';
 import { v4 as uuid4 } from 'uuid';
-import { Loader, Uploader } from '../../../components';
+import { AddSign, Loader, Uploader } from '../../../components';
 import TextArea from 'antd/es/input/TextArea';
 import { MCMaterialRepairmentForm } from './MCMaterialRepairmentForm';
 import { MCManpowerForm } from './MCManpowerForm';
@@ -39,6 +39,7 @@ const ServicesForm = () => {
   const { isLoading, fleets, service, area } = useMCServicesForm();
   const [modalRepairMaterialOpen, setModalRepairMaterial] = useState(false);
   const [modalManpowerOpen, setModalManpowerOpen] = useState(false);
+  const [modalSignOpen, setModalSignOpen] = useState(false);
 
   const handleSubmit = (data: MobileMCService) => {
     console.log(data);
@@ -189,6 +190,13 @@ const ServicesForm = () => {
             />
           </Form.Item>
         </div>
+
+        <div className='footer_bottom'>
+          <Button onClick={() => setModalSignOpen(true)} type='primary'>
+            Firmar
+          </Button>
+          <Button type='dashed'>Guardar</Button>
+        </div>
       </Form>
 
       {/* --------------------------- Modals -------------------------------- */}
@@ -213,6 +221,8 @@ const ServicesForm = () => {
           closeModal={() => setModalManpowerOpen(false)}
         />
       </AddCMItem>
+
+      <AddSign isOpen={modalSignOpen} setIsOpen={setModalSignOpen} />
     </>
   );
 };

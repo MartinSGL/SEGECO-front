@@ -26,3 +26,9 @@
 .uploader_container {
   padding: 20px;
 }
+
+.footer_bottom {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
