@@ -1,5 +1,5 @@
 import { Button, Form, Input, Select } from 'antd';
-import { AddModalFormProps, MaterialRepairment } from './MCServiceForm';
+import { AddModalFormProps, MaterialRepairment } from '../../../interfaces';
 
 export const MCMaterialRepairmentForm = ({
   handleOnFinish,

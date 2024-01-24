@@ -1,7 +1,7 @@
 import { Button, Form, Input, Select } from 'antd';
-import { AddModalFormProps, ManPower } from './MCServiceForm';
 import { DatePickerEs } from '../../../components/date-picker-es/DatePicketEs';
 import dayjs from 'dayjs';
+import { AddModalFormProps, ManPower } from '../../../interfaces';
 
 export const MCManpowerForm = ({
   handleOnFinish,
